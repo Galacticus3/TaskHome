@@ -11,16 +11,30 @@ using System.Windows.Forms;
 namespace calc2
 {
     public partial class Form1 : Form
-    { 
-        double rez = 0;    //результат
+    {
+		/*
+		 * Думаю, по завершенні останнього завдання ця змінна стане не потрібною
+		 */
+		double rez = 0;    // результат
+
+		/*
+		 * забий на цю перевірку. 
+		 * Краще, якщо сталась якась помилка чи ділення на нуль, то обнули всі значення і виведи помилку. 
+		 * Можеш вивести не в інпут, а якось так: MessageBox.Show("Text");
+		 */
+		bool dilenzero = false;
+
+		/*
+		 * Наш калькулятор, юзай його 
+		 */
+		IgorsCalculator igorsCalculator = new IgorsCalculator();
+
         double n1 = 0;     //перше число вираження
         double n2 = 0;     //друге число вираження
-        bool dilenzero = false;  //чи відбулось ділення на нуль
         bool flag = false;  //для очищення екрану перед вводом першої цифри нового числа
         bool flagEqv = false;  //відбулась дія "="
 
-        enum znaky { pusto = 1, plus, minus, mnozh, dilen };  //знак дії 
-        znaky znak = znaky.pusto;       
+        znaky znak = znaky.pusto;
 
         public Form1()
         {

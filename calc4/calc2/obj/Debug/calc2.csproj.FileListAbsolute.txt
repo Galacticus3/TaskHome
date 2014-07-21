@@ -19,3 +19,12 @@ E:\ProfectsCatHome\TasksSS\calc2\calc2\obj\Debug\calc2.csproj.GenerateResource.C
 E:\ProfectsCatHome\TasksSS\calc4\calc2\bin\Debug\calc2.exe.config
 E:\ProfectsCatHome\TasksSS\calc4\calc2\obj\Debug\calc2.exe
 E:\ProfectsCatHome\TasksSS\calc4\calc2\obj\Debug\calc2.pdb
+C:\Users\rlytvyn\Documents\GitHub\TaskHome\calc4\calc2\bin\Debug\calc2.exe.config
+C:\Users\rlytvyn\Documents\GitHub\TaskHome\calc4\calc2\obj\Debug\calc2.exe
+C:\Users\rlytvyn\Documents\GitHub\TaskHome\calc4\calc2\obj\Debug\calc2.pdb
+C:\Users\rlytvyn\Documents\GitHub\TaskHome\calc4\calc2\bin\Debug\calc2.exe
+C:\Users\rlytvyn\Documents\GitHub\TaskHome\calc4\calc2\bin\Debug\calc2.pdb
+C:\Users\rlytvyn\Documents\GitHub\TaskHome\calc4\calc2\obj\Debug\calc2.csprojResolveAssemblyReference.cache
+C:\Users\rlytvyn\Documents\GitHub\TaskHome\calc4\calc2\obj\Debug\calc2.Form1.resources
+C:\Users\rlytvyn\Documents\GitHub\TaskHome\calc4\calc2\obj\Debug\calc2.Properties.Resources.resources
+C:\Users\rlytvyn\Documents\GitHub\TaskHome\calc4\calc2\obj\Debug\calc2.csproj.GenerateResource.Cache
