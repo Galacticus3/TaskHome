@@ -41,13 +41,15 @@ namespace calc2
             InitializeComponent();
         }
 
+       
+
         private void button1_Click(object sender, EventArgs e)
         {
             if (dilenzero == false)
             {
                 if (flag == true) textBox1.Text = "";
                 textBox1.Text = textBox1.Text + "1";
-                flag = false;
+                flag = false;  
             }
             else
             { return; }
@@ -171,7 +173,7 @@ namespace calc2
             rez = 0;
             n1 = 0;
             n2 = 0;
-            
+            igorsCalculator.resetData();
             dilenzero = false;
             flag = false;
         }
@@ -181,7 +183,8 @@ namespace calc2
         {
             if (textBox1.Text != "" && dilenzero == false)
             {
-                rez = Math.Sqrt(Convert.ToDouble(textBox1.Text));
+                //rez = Math.Sqrt(Convert.ToDouble(textBox1.Text));
+                rez = igorsCalculator.sqrt(Convert.ToDouble(textBox1.Text));
                 textBox1.Text = Convert.ToString(rez);
             }
             else
@@ -193,7 +196,8 @@ namespace calc2
         {
             if (textBox1.Text != "" && dilenzero == false)
             {
-                rez = Convert.ToDouble(textBox1.Text) * (-1);
+                //rez = Convert.ToDouble(textBox1.Text) * (-1);
+                rez = igorsCalculator.reverse(Convert.ToDouble(textBox1.Text));
                 textBox1.Text = Convert.ToString(rez);
             }
             else
@@ -205,7 +209,8 @@ namespace calc2
         {
             if (textBox1.Text != "" && dilenzero == false)
             {
-                rez = 1 / Convert.ToDouble(textBox1.Text);
+                //rez = 1 / Convert.ToDouble(textBox1.Text);
+                rez = igorsCalculator.x1(Convert.ToDouble(textBox1.Text));
                 textBox1.Text = Convert.ToString(rez);
             }
             else
@@ -305,7 +310,8 @@ namespace calc2
                 case znaky.plus:
                     {
                         if (n1 != 0) n2 = n1;
-                        rez = rez + n2;
+                        //rez = rez + n2;
+                        rez = igorsCalculator.add(rez, n2);
                         textBox1.Text = Convert.ToString(rez);
                         n1 = n2;
                         break;
@@ -313,16 +319,18 @@ namespace calc2
                 case znaky.minus:
                     {
                         if (n1 != 0) n2 = n1;
-                        rez = rez - n2;
+                        //rez = rez - n2;
+                        rez = igorsCalculator.sub(rez, n2);
                         textBox1.Text = Convert.ToString(rez);
                         n1 = n2;
                         break;
-                    }
+                    } 
 
                 case znaky.mnozh:
                     {
                         if (n1 != 0) n2 = n1;
-                        rez = rez * n2;
+                        //rez = rez * n2;
+                        rez = igorsCalculator.mul(rez, n2);
                         textBox1.Text = Convert.ToString(rez);
                         n1 = n2;
                         break;
@@ -339,7 +347,8 @@ namespace calc2
                         else
                         {
                             if (n1 != 0) n2 = n1;
-                            rez = rez / n2;
+                            //rez = rez / n2;
+                            rez = igorsCalculator.div(rez, n2);
                             textBox1.Text = Convert.ToString(rez); //Convert.ToDouble(textBox1.Text));
                             n1 = n2;
                         }

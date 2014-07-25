@@ -40,22 +40,55 @@ namespace calc2 {
 		}
 
 		// +
-		public double add(double a, double? b) {
-			// якщо b.HasValue, то повернути суму а + b і в latestOperand записати b
-			// інакше до повернути суму останнього результату і числа а. В latestOperand записати b
-			return 0;
+        public double add(double a, double? b)
+        {
+            // якщо b.HasValue, то повернути суму а + b і в latestOperand записати b
+            // інакше до повернути суму числа а і останнього результату. В latestOperand записати b
+            if (b.HasValue)
+            {
+                latestOperand = b;
+                return a + Convert.ToDouble(b);
+            } 
+            else
+            {
+                latestOperand = b;
+                return a + Convert.ToDouble(latestResult);
+            }
+			//return 0;
 		}
 
 		// -
 		public double sub(double a, double? b) {
-			// аналогічно до суми
-			return 0;
+            // якщо b.HasValue, то повернути різницю а - b і в latestOperand записати b 
+            // інакше до повернути числа а і останнього результату.  В latestOperand записати b
+            if (b.HasValue)
+            {
+                latestOperand = b;
+                return a - Convert.ToDouble(b);
+            } 
+            else
+            {
+                latestOperand = b;
+                return a - Convert.ToDouble(latestResult);
+            }			
+			//return 0;
 		}
 
 		// *
 		public double mul(double a, double? b) {
-			// аналогічно до суми
-			return 0;
+            // якщо b.HasValue, то повернути добуток а * b і в latestOperand записати b
+            // інакше до повернути добуток числа а і останнього результату. В latestOperand записати b
+            if (b.HasValue)
+            {
+                latestOperand = b;
+                return a * Convert.ToDouble(b);
+            }
+            else
+            {
+                latestOperand = b;
+                return a * Convert.ToDouble(latestResult);
+            }
+			//return 0;
 		}
 
 		// /
@@ -73,14 +106,35 @@ namespace calc2 {
 			//  	dilenzero = true;
 			//  	flag = false;
 			// }
-			return 0;
+            //==================================
+            // якщо b.HasValue, то повернути далення а / b і в latestOperand записати b
+            // інакше до повернути ділення числа а і останнього результату. В latestOperand записати b
+            if (b.HasValue)
+            {
+                latestOperand = b;
+                return a / Convert.ToDouble(b);
+            }
+            else
+            {
+                latestOperand = b;
+                return a / Convert.ToDouble(latestResult);
+            }
+			//return 0;
 		}
 		
 		// змінити знак
 		public double reverse(double? b) {
 			// якщо b.HasValue, то повернути обернене значення
 			// інакше повернути обернене значення до останнього результату. 
-			return 0;
+            if (b.HasValue)
+            {
+                return Convert.ToDouble(b)*(-1);
+            }
+            else
+            {
+                return Convert.ToDouble(latestResult)*(-1);
+            }
+            //return 0;
 		}
 
 		// корінь
@@ -99,13 +153,16 @@ namespace calc2 {
 			//  	dilenzero = true;
 			//  	flag = false;
 			// }
-			return 0;
+            //=================================
+            return Math.Sqrt(Convert.ToDouble(b));
+			//return 0;
 		}
 
 		// 1/x
 		public double x1(double? b) {
 			// аналогічно до кореня
-			return 0;
+            return 1/(Convert.ToDouble(b));
+            //return 0;
 		}
 		
 		// повторити останню операцію
