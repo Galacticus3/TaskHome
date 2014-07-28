@@ -184,8 +184,15 @@ namespace calc2
             if (textBox1.Text != "" && dilenzero == false)
             {
                 //rez = Math.Sqrt(Convert.ToDouble(textBox1.Text));
-                rez = igorsCalculator.sqrt(Convert.ToDouble(textBox1.Text));
-                textBox1.Text = Convert.ToString(rez);
+                try                {
+                    rez = igorsCalculator.sqrt(Convert.ToDouble(textBox1.Text));
+                    textBox1.Text = Convert.ToString(rez);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Галяк!");
+                }
+
             }
             else
             { return; }
@@ -337,7 +344,7 @@ namespace calc2
                     }
                 case znaky.dilen:
                     {
-                        if (Convert.ToDouble(textBox1.Text) == 0)
+                       /* if (Convert.ToDouble(textBox1.Text) == 0)
                         {
                             textBox1.Text = "На ноль нельзя!";
                             znak = znaky.pusto;
@@ -349,8 +356,23 @@ namespace calc2
                             if (n1 != 0) n2 = n1;
                             //rez = rez / n2;
                             rez = igorsCalculator.div(rez, n2);
+                            //try {  }
+                            //catch (DivideByZeroException e) {  }
+                            textBox1.Text = Convert.ToString(rez); //Convert.ToDouble(textBox1.Text));
+                            n1 = n2; 
+                        }*/
+                        try
+                        {
+                            if (n1 != 0) n2 = n1;
+                            rez = igorsCalculator.div(rez, n2);
                             textBox1.Text = Convert.ToString(rez); //Convert.ToDouble(textBox1.Text));
                             n1 = n2;
+                        }
+                        catch (DivideByZeroException)
+                        {
+                            znak = znaky.pusto;
+                            flag = false;
+                            MessageBox.Show("На ноль нельзя!");
                         }
                         break;
                     }
