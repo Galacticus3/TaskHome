@@ -20,12 +20,7 @@ namespace task2
             this.education = education;
             this.profession = profession;
             this.zp = zp;
-            
-        }
-        public Person()
-        {
-            this.name = "Name";
-            this.surname = "Surname";
+             
         }
     }
 }

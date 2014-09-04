@@ -13,24 +13,26 @@ namespace task2
     
     public partial class Form1 : Form
     {
-
         List<Person> myList = new List<Person>();
+        enum EducationList {serednya, bakalawr, vyshcha};
+        enum Professionlist { buhgalter, programist, sesurity, ekonomist, yurist, admin, krutan, kasyr};
 
         public Form1()
         {
             InitializeComponent();
+            // додавання освіт та професій в комбобокси
+            cmbEducation.DataSource = Enum.GetValues(typeof(EducationList));
+            cmbProfession.DataSource = Enum.GetValues(typeof(Professionlist));
         }
-
+        
         public bool textFieldValivation(TextBox field, Label label)
         {
             if (field.Text == "")
             {
                 label.ForeColor = Color.Red;
-                //field.BackColor = Color.LightCoral;
                 return false;
             }
             label.ForeColor = Color.Black;
-            //field.BackColor = Color.White;
             return true;
         }
 
@@ -39,11 +41,9 @@ namespace task2
             if (field.Text == "")
             {
                 label.ForeColor = Color.Red;
-                //field.BackColor = Color.LightCoral;
                 return false;
             }
             label.ForeColor = Color.Black; 
-            //field.BackColor = Color.White;
             return true;
         }
 
@@ -56,12 +56,10 @@ namespace task2
             txtZp.Text = "";
         }
 
-
         private void btnAddToList_Click(object sender, EventArgs e)
         {
             //перевірка полів 
             bool isValid = textFieldValivation(txtName, lblName) && textFieldValivation(txtSurname, lblSurname) && textFieldValivation2(cmbEducation, lblEducation) && textFieldValivation2(cmbProfession, lblProfession) && textFieldValivation(txtZp, lblZp);
-
             if (!isValid)
             {
                 return;
@@ -70,7 +68,7 @@ namespace task2
             //введення та додавання даних про людину в список
             Person person = new Person(txtName.Text, txtSurname.Text, dtmDateOfBirth.Value, cmbEducation.Text, cmbProfession.Text, Convert.ToDouble(txtZp.Text));
             myList.Add(person);
-            dataGridView1.Rows.Add(person.name, person.surname, person.dob.ToString("dd.MM.yyyy"),  person.education, person.profession, person.zp);
+            dataGridView1.Rows.Add(person.name, person.surname, person.dob.ToString("dd.MM.yyyy"), person.education, person.profession, person.zp);
             fieldsClear();
         }
         //лишнє
@@ -81,7 +79,7 @@ namespace task2
 
         private void label4_Click(object sender, EventArgs e)
         {
-             
+
         }
 
     }

@@ -171,10 +171,6 @@
             // cmbEducation
             // 
             this.cmbEducation.FormattingEnabled = true;
-            this.cmbEducation.Items.AddRange(new object[] {
-            "Вища",
-            "Бакалавр",
-            "Середня"});
             this.cmbEducation.Location = new System.Drawing.Point(141, 90);
             this.cmbEducation.Name = "cmbEducation";
             this.cmbEducation.Size = new System.Drawing.Size(144, 21);
@@ -194,18 +190,6 @@
             // cmbProfession
             // 
             this.cmbProfession.FormattingEnabled = true;
-            this.cmbProfession.Items.AddRange(new object[] {
-            "Бухгалтер",
-            "Економіст",
-            "Кадровик",
-            "Інженер з нагляду за будівництвом",
-            "Інженер з охорони праці і техніки безпеки",
-            "Касир",
-            "Юрист",
-            "Програміст",
-            "Системний адміністратор",
-            "Секретар",
-            "Охоронник"});
             this.cmbProfession.Location = new System.Drawing.Point(141, 117);
             this.cmbProfession.Name = "cmbProfession";
             this.cmbProfession.Size = new System.Drawing.Size(144, 21);
