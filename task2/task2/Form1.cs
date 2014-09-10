@@ -7,22 +7,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 
 namespace task2
 {
-    
+    enum EducationType { serednya, bakalawr, vyshcha };
+    enum ProfessionType { buhgalter, programist, sesurity, ekonomist, yurist, admin, krutan, kasyr };
+
     public partial class Form1 : Form
     {
         List<Person> myList = new List<Person>();
-        enum EducationList {serednya, bakalawr, vyshcha};
-        enum Professionlist { buhgalter, programist, sesurity, ekonomist, yurist, admin, krutan, kasyr};
 
         public Form1()
         {
             InitializeComponent();
             // додавання освіт та професій в комбобокси
-            cmbEducation.DataSource = Enum.GetValues(typeof(EducationList));
-            cmbProfession.DataSource = Enum.GetValues(typeof(Professionlist));
+            cmbEducation.DataSource = Enum.GetValues(typeof(EducationType));
+            cmbProfession.DataSource = Enum.GetValues(typeof(ProfessionType));
         }
         
         public bool textFieldValivation(TextBox field, Label label)
@@ -64,7 +65,7 @@ namespace task2
             {
                 return;
             }
-                   
+          
             //введення та додавання даних про людину в список
             Person person = new Person(txtName.Text, txtSurname.Text, dtmDateOfBirth.Value, cmbEducation.Text, cmbProfession.Text, Convert.ToDouble(txtZp.Text));
             myList.Add(person);
@@ -80,6 +81,35 @@ namespace task2
         private void label4_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnSaveToXml_Click(object sender, EventArgs e)
+        {
+            if (myList.Count == 0) return;
+
+            using (XmlWriter writer = XmlWriter.Create("PersonsData.xml"))
+            {
+                writer.WriteStartDocument();
+                writer.WriteStartElement("Persons");
+
+                foreach (Person value in myList)
+                {
+                    writer.WriteStartElement("Person");
+
+                    writer.WriteElementString("Name", value.name);
+                    writer.WriteElementString("Surname", value.surname);
+                    writer.WriteElementString("DayOfBirthday", value.dob.ToString("dd.MM.yyyy"));
+                    writer.WriteElementString("Education", value.education);
+                    writer.WriteElementString("Profession", value.profession);
+                    writer.WriteElementString("Money", value.zp.ToString());
+
+                    writer.WriteEndElement();
+                }
+
+                writer.WriteEndElement();
+                writer.WriteEndDocument();
+                MessageBox.Show("Saved!");
+            }
         }
 
     }

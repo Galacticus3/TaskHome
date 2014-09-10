@@ -48,6 +48,7 @@
             this.cmbProfession = new System.Windows.Forms.ComboBox();
             this.lblZp = new System.Windows.Forms.Label();
             this.txtZp = new System.Windows.Forms.TextBox();
+            this.btnSaveToXml = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -212,11 +213,22 @@
             this.txtZp.Size = new System.Drawing.Size(144, 20);
             this.txtZp.TabIndex = 14;
             // 
+            // btnSaveToXml
+            // 
+            this.btnSaveToXml.Location = new System.Drawing.Point(141, 176);
+            this.btnSaveToXml.Name = "btnSaveToXml";
+            this.btnSaveToXml.Size = new System.Drawing.Size(90, 23);
+            this.btnSaveToXml.TabIndex = 15;
+            this.btnSaveToXml.Text = "Зберегти в xml";
+            this.btnSaveToXml.UseVisualStyleBackColor = true;
+            this.btnSaveToXml.Click += new System.EventHandler(this.btnSaveToXml_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(719, 466);
+            this.Controls.Add(this.btnSaveToXml);
             this.Controls.Add(this.txtZp);
             this.Controls.Add(this.lblZp);
             this.Controls.Add(this.cmbProfession);
@@ -263,6 +275,7 @@
         private System.Windows.Forms.Label lblZp;
         private System.Windows.Forms.TextBox txtZp;
         private System.Windows.Forms.ComboBox cmbEducation;
+        private System.Windows.Forms.Button btnSaveToXml;
     }
 }
 
