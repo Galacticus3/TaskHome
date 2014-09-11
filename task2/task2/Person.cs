@@ -8,7 +8,7 @@ namespace task2
 {
     public class Person
     {
-        public string name, surname, education, profession;
+        public string name, surname, education, profession, day, money;
         public DateTime dob;
         public double zp;        
 
@@ -21,6 +21,17 @@ namespace task2
             this.profession = profession;
             this.zp = zp;
              
+        }
+
+        public Person()
+        {
+            name = "";
+            surname = "";
+            day = "";
+            education = "";
+            profession = "";
+            money = "";
+
         }
     }
 }

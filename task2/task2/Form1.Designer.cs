@@ -49,6 +49,8 @@
             this.lblZp = new System.Windows.Forms.Label();
             this.txtZp = new System.Windows.Forms.TextBox();
             this.btnSaveToXml = new System.Windows.Forms.Button();
+            this.btnLoadFromXml = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -223,11 +225,30 @@
             this.btnSaveToXml.UseVisualStyleBackColor = true;
             this.btnSaveToXml.Click += new System.EventHandler(this.btnSaveToXml_Click);
             // 
+            // btnLoadFromXml
+            // 
+            this.btnLoadFromXml.Location = new System.Drawing.Point(255, 176);
+            this.btnLoadFromXml.Name = "btnLoadFromXml";
+            this.btnLoadFromXml.Size = new System.Drawing.Size(127, 23);
+            this.btnLoadFromXml.TabIndex = 16;
+            this.btnLoadFromXml.Text = "Завантажити з xml";
+            this.btnLoadFromXml.UseVisualStyleBackColor = true;
+            this.btnLoadFromXml.Click += new System.EventHandler(this.btnLoadFromXml_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(75, 489);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(566, 20);
+            this.textBox1.TabIndex = 17;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(719, 466);
+            this.ClientSize = new System.Drawing.Size(719, 566);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.btnLoadFromXml);
             this.Controls.Add(this.btnSaveToXml);
             this.Controls.Add(this.txtZp);
             this.Controls.Add(this.lblZp);
@@ -276,6 +297,8 @@
         private System.Windows.Forms.TextBox txtZp;
         private System.Windows.Forms.ComboBox cmbEducation;
         private System.Windows.Forms.Button btnSaveToXml;
+        private System.Windows.Forms.Button btnLoadFromXml;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
 

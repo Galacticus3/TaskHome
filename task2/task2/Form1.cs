@@ -87,7 +87,13 @@ namespace task2
         {
             if (myList.Count == 0) return;
 
-            using (XmlWriter writer = XmlWriter.Create("PersonsData.xml"))
+            XmlWriterSettings settings = new XmlWriterSettings();
+            settings.Indent = true;
+            settings.IndentChars = "  ";
+            settings.NewLineChars = "\r\n";
+            settings.NewLineHandling = NewLineHandling.Replace;
+
+            using (XmlWriter writer = XmlWriter.Create("PersonsData.xml", settings))
             {
                 writer.WriteStartDocument();
                 writer.WriteStartElement("Persons");
@@ -109,6 +115,71 @@ namespace task2
                 writer.WriteEndElement();
                 writer.WriteEndDocument();
                 MessageBox.Show("Saved!");
+            }
+        }
+
+        private void btnLoadFromXml_Click(object sender, EventArgs e)
+        {
+            string lastNodeName = "";
+            Person m = new Person();  //(txtName.Text, txtSurname.Text, dtmDateOfBirth.Value, cmbEducation.Text, cmbProfession.Text, Convert.ToDouble(txtZp.Text));
+            List<Person> myList2 = new List<Person>();
+            
+            using (XmlReader xml = XmlReader.Create("PersonsData.xml"))
+             {
+               while (xml.Read())
+                {
+	              switch (xml.NodeType)
+	                 {
+            	       case XmlNodeType.Element:
+            	        // нашли элемент member
+                        if (xml.Name == "Person")
+	                      {
+                            // передаем данные в класс Person
+                            
+                            /*if (xml.HasAttributes)
+	                          {
+	                           // поиск атрибута kuid
+	                           while (xml.MoveToNextAttribute())
+	                             {
+	                                if (xml.Name == "kuid")
+	                                   {
+	                                      Console.WriteLine("KUID: {0}", xml.Value);
+	                                      break;
+	                                    }
+	                              }
+	                            }*/
+	                        }
+	 
+	                      // запоминаем имя найденного элемента
+	                      lastNodeName = xml.Name;
+	                      break;
+	 
+	                   case XmlNodeType.Text:
+	                   // нашли текст, смотрим по имени элемента, что это за текст
+	                    if (lastNodeName == "Name") { m.name = xml.Value; }
+                         else if (lastNodeName == "Surname") { m.surname = xml.Value; ; }
+                        else if (lastNodeName == "DayOfBirthday") { m.day = xml.Value; } //m.dob = Convert.ToDateTime(xml.Value); } //DateTime.ParseExact(xml.Value, "dd.MM.yyyy", CultureInfo.InvariantCulture); }
+                        else if (lastNodeName == "Education") { m.education = xml.Value; }
+                        else if (lastNodeName == "Profession") { m.profession = xml.Value; }
+                        else if (lastNodeName == "Money") { m.money = xml.Value; }
+	                   break; 
+
+                       /*case XmlNodeType.EndElement:
+	                   // закрывающий элемент
+	                    if (xml.Name == "member") { Console.WriteLine("------------------------------------------"); }
+	                   break;*/
+
+	                 }
+                 
+	            }
+               myList2.Add(m);
+	         }
+               
+            //======== to table ====
+         //   textBox1.Text = myList2[1].name + "  --  " + myList2[1].surname;
+            foreach (Person value in myList2)
+            {
+                dataGridView1.Rows.Add(value.name, value.surname, value.day, value.education, value.profession, value.money);
             }
         }
 

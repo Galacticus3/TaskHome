@@ -1,1 +1,19 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Persons><Person><Name>ddddd</Name><Surname>vvvvvv</Surname><DayOfBirthday>01.01.1985</DayOfBirthday><Education>serednya</Education><Profession>buhgalter</Profession><Money>3000</Money></Person><Person><Name>nnnn</Name><Surname>fffff</Surname><DayOfBirthday>01.01.1985</DayOfBirthday><Education>bakalawr</Education><Profession>programist</Profession><Money>5555</Money></Person></Persons>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Persons>
+  <Person>
+    <Name>2222</Name>
+    <Surname>3333</Surname>
+    <DayOfBirthday>17.01.1985</DayOfBirthday>
+    <Education>serednya</Education>
+    <Profession>buhgalter</Profession>
+    <Money>3456</Money>
+  </Person>
+  <Person>
+    <Name>ttttttt</Name>
+    <Surname>yyyyyy</Surname>
+    <DayOfBirthday>20.07.1989</DayOfBirthday>
+    <Education>vyshcha</Education>
+    <Profession>programist</Profession>
+    <Money>55555</Money>
+  </Person>
+</Persons>
