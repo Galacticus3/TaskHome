@@ -1,19 +1,43 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Persons>
   <Person>
-    <Name>2222</Name>
-    <Surname>3333</Surname>
-    <DayOfBirthday>17.01.1985</DayOfBirthday>
+    <Name>fffff</Name>
+    <Surname>ggggg</Surname>
+    <DayOfBirthday>27.01.1985</DayOfBirthday>
     <Education>serednya</Education>
     <Profession>buhgalter</Profession>
-    <Money>3456</Money>
+    <Money>2222</Money>
   </Person>
   <Person>
-    <Name>ttttttt</Name>
-    <Surname>yyyyyy</Surname>
-    <DayOfBirthday>20.07.1989</DayOfBirthday>
+    <Name>bbbb</Name>
+    <Surname>nnnnn</Surname>
+    <DayOfBirthday>13.01.1989</DayOfBirthday>
+    <Education>bakalawr</Education>
+    <Profession>yurist</Profession>
+    <Money>12121</Money>
+  </Person>
+  <Person>
+    <Name>ddddd</Name>
+    <Surname>aaaa</Surname>
+    <DayOfBirthday>28.01.1989</DayOfBirthday>
     <Education>vyshcha</Education>
     <Profession>programist</Profession>
-    <Money>55555</Money>
+    <Money>5654</Money>
+  </Person>
+  <Person>
+    <Name>yyyyy</Name>
+    <Surname>ooooo</Surname>
+    <DayOfBirthday>20.08.1992</DayOfBirthday>
+    <Education>serednya</Education>
+    <Profession>admin</Profession>
+    <Money>7654</Money>
+  </Person>
+  <Person>
+    <Name>mkgk</Name>
+    <Surname>efsefgse</Surname>
+    <DayOfBirthday>18.11.1993</DayOfBirthday>
+    <Education>vyshcha</Education>
+    <Profession>krutan</Profession>
+    <Money>99999</Money>
   </Person>
 </Persons>

@@ -103,14 +103,11 @@ namespace task2
            Person m = new Person();  //(txtName.Text, txtSurname.Text, dtmDateOfBirth.Value, cmbEducation.Text, cmbProfession.Text, Convert.ToDouble(txtZp.Text));
             List<Person> myList2 = new List<Person>();
 
-              using (XmlReader xml = XmlReader.Create("PersonsData.xml"))
+             /* using (XmlReader xml = XmlReader.Create("PersonsData.xml"))
                {
                  while (xml.Read())
                  {
-                     //if ((xml.NodeType == XmlNodeType.Element) && (xml.Name == "Person"))
-                     //{
-                         //Person m = new Person();
-                         switch (xml.NodeType)
+                       switch (xml.NodeType)
                          {
                              case XmlNodeType.Element:
                                  // нашли элемент member
@@ -142,14 +139,12 @@ namespace task2
                                  }
                                  break;
                          }
-                    // }
-                      
-                  } 
+                 } 
                
-               }
+               }*/
 
             // 2 sposib  ===================
-  /*                 using (XmlReader xml = XmlReader.Create("PersonsData.xml"))
+                   using (XmlReader xml = XmlReader.Create("PersonsData.xml"))
                    {
                        while (xml.Read())
                        {
@@ -163,20 +158,22 @@ namespace task2
                                    // Get element name and switch on it.
                                    switch (xml.Name)
                                    {
+                                       
                                        case "Name": if (xml.Read()) { m.name = xml.Value; } break;
                                        case "Surname": if (xml.Read()) { m.surname = xml.Value; } break;
                                        case "DayOfBirthday": if (xml.Read()) { m.day = xml.Value; } break;
                                        case "Education": if (xml.Read()) { m.education = xml.Value; } break;
                                        case "Profession": if (xml.Read()) { m.profession = xml.Value; } break;
                                        case "Money": if (xml.Read()) { m.zp = Convert.ToDouble(xml.Value); } break;
-                                      // default: myList2.Add(m); break;
+                                       case "Person": myList2.Add(m); m = new Person(); break;
+                                       //default: myList2.Add(m); break;
                                    }
 
                                }
                           // }
-                       } myList2.Add(m);
+                       } 
                     }
-                   */
+                   
               //=====================
 
 
