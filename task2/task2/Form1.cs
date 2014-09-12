@@ -148,31 +148,22 @@ namespace task2
                    {
                        while (xml.Read())
                        {
-                         //  if (xml.IsStartElement() && (xml.Name == "Person"))
-                         //  {
-                        //       Person m = new Person();
-                               if (xml.IsStartElement())
-                               {
-
-
-                                   // Get element name and switch on it.
-                                   switch (xml.Name)
+                           if (xml.IsStartElement())
+                           {   // Get element name and switch on it.
+                               switch (xml.Name)
                                    {
-                                       
+                                       case "Person": myList2.Add(m); m = new Person(); break;
                                        case "Name": if (xml.Read()) { m.name = xml.Value; } break;
                                        case "Surname": if (xml.Read()) { m.surname = xml.Value; } break;
                                        case "DayOfBirthday": if (xml.Read()) { m.day = xml.Value; } break;
                                        case "Education": if (xml.Read()) { m.education = xml.Value; } break;
                                        case "Profession": if (xml.Read()) { m.profession = xml.Value; } break;
                                        case "Money": if (xml.Read()) { m.zp = Convert.ToDouble(xml.Value); } break;
-                                       case "Person": myList2.Add(m); m = new Person(); break;
-                                       //default: myList2.Add(m); break;
                                    }
-
-                               }
-                          // }
-                       } 
-                    }
+                             }
+                       }
+                    myList2.Add(m); 
+                   }
                    
               //=====================
 
@@ -183,11 +174,12 @@ namespace task2
                     
             //======== to table ====
          //   textBox1.Text = myList2[1].name + "  --  " + myList2[1].surname;
-            foreach (Person value in myList2)
-            {
-                dataGridView1.Rows.Add(value.name, value.surname, value.day, value.education, value.profession, Convert.ToString(value.zp));
-                textBox1.Text = Convert.ToString(myList2.Count);
-            }
+                   for (int i = 1; i < myList2.Count; i++ )
+                   {
+                       dataGridView1.Rows.Add(myList2[i].name, myList2[i].surname, myList2[i].day, myList2[i].education, myList2[i].profession, Convert.ToString(myList2[i].zp));
+
+                   }
+            textBox1.Text = Convert.ToString(myList2.Count);
         }
 
     }
