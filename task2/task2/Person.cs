@@ -30,7 +30,7 @@ namespace task2
             day = "";
             education = "";
             profession = "";
-            money = "";
+            zp = 0;
 
         }
     }
