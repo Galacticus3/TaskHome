@@ -28,33 +28,19 @@ namespace task2
         
         public bool textFieldValivation(TextBox field, Label label)
         {
-            if (field.Text == "")
-            {
-                label.ForeColor = Color.Red;
-                return false;
-            }
-            label.ForeColor = Color.Black;
-            return true;
+            if (field.Text == "") { label.ForeColor = Color.Red; return false; } 
+            label.ForeColor = Color.Black; return true;
         }
 
         public bool textFieldValivation2(ComboBox field, Label label)
         {
-            if (field.Text == "")
-            {
-                label.ForeColor = Color.Red;
-                return false;
-            }
-            label.ForeColor = Color.Black; 
-            return true;
+            if (field.Text == "") { label.ForeColor = Color.Red; return false; }
+            label.ForeColor = Color.Black; return true;
         }
 
         public void fieldsClear()
         {
-            txtName.Text = "";
-            txtSurname.Text = "";
-            cmbEducation.Text = "";
-            cmbProfession.Text = "";
-            txtZp.Text = "";
+            txtName.Text = ""; txtSurname.Text = ""; cmbEducation.Text = ""; cmbProfession.Text = ""; txtZp.Text = "";
         }
 
         private void btnAddToList_Click(object sender, EventArgs e)
@@ -73,15 +59,8 @@ namespace task2
             fieldsClear();
         }
         //лишнє
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
+        private void label3_Click(object sender, EventArgs e) {   }
+        private void label4_Click(object sender, EventArgs e) {   }
 
         private void btnSaveToXml_Click(object sender, EventArgs e)
         {
@@ -159,6 +138,7 @@ namespace task2
                                  if (xml.Name == "Person")
                                  {
                                      myList2.Add(m);
+                                     m = new Person();
                                  }
                                  break;
                          }
