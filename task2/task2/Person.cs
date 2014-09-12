@@ -27,7 +27,8 @@ namespace task2
         {
             name = "";
             surname = "";
-            day = "";
+            dob = DateTime.Parse("27.01.1985");
+            //day = "";
             education = "";
             profession = "";
             zp = 0;

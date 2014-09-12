@@ -98,88 +98,82 @@ namespace task2
         }
 
         private void btnLoadFromXml_Click(object sender, EventArgs e)
-        {
-            string lastNodeName = "";
-           Person m = new Person();  //(txtName.Text, txtSurname.Text, dtmDateOfBirth.Value, cmbEducation.Text, cmbProfession.Text, Convert.ToDouble(txtZp.Text));
-            List<Person> myList2 = new List<Person>();
+        { 
+           Person m = new Person();
+           List<Person> myList2 = new List<Person>();
 
-             /* using (XmlReader xml = XmlReader.Create("PersonsData.xml"))
-               {
-                 while (xml.Read())
-                 {
-                       switch (xml.NodeType)
-                         {
-                             case XmlNodeType.Element:
-                                 // нашли элемент member
-                                 if (xml.Name == "Person")
-                                 {
+           using (XmlReader xml = XmlReader.Create("PersonsData.xml"))
+            {
+                while (xml.Read())
+                {   // Only detect start elements.
+                    if (xml.IsStartElement())
+                    {   // Get element name and switch on it.
+                        switch (xml.Name)
+                        {
+                            case "Person": if (m.name != "") myList2.Add(m); m = new Person(); break;
+                            case "Name": if (xml.Read()) { m.name = xml.Value; } break;
+                            case "Surname": if (xml.Read()) { m.surname = xml.Value; } break;
+                            case "DayOfBirthday": if (xml.Read()) { m.dob = DateTime.Parse(xml.Value); } break;
+                            case "Education": if (xml.Read()) { m.education = xml.Value; } break;
+                            case "Profession": if (xml.Read()) { m.profession = xml.Value; } break;
+                            case "Money": if (xml.Read()) { m.zp = Convert.ToDouble(xml.Value); } break;
+                        }
+                    }
+                }
+                myList2.Add(m);
+            }
 
-                                     //поиск атрибутов ...
-                                 }
+            //======== to table ====
+            foreach (Person value in myList2)
+            {
+                dataGridView1.Rows.Add(value.name, value.surname, value.dob.ToString("dd.MM.yyyy"), value.education, value.profession, Convert.ToString(value.zp));
 
-                                 // запоминаем имя найденного элемента
-                                 lastNodeName = xml.Name;
-                                 break;
-
-                             case XmlNodeType.Text:
-                                 // нашли текст, смотрим по имени элемента, что это за текст
-                                 if (lastNodeName == "Name") { m.name = xml.Value; }
-                                 else if (lastNodeName == "Surname") { m.surname = xml.Value; }
-                                 else if (lastNodeName == "DayOfBirthday") { m.day = xml.Value; } //m.dob = Convert.ToDateTime(xml.Value); } //DateTime.ParseExact(xml.Value, "dd.MM.yyyy", CultureInfo.InvariantCulture); }
-                                 else if (lastNodeName == "Education") { m.education = xml.Value; }
-                                 else if (lastNodeName == "Profession") { m.profession = xml.Value; }
-                                 else if (lastNodeName == "Money") { m.zp = Convert.ToDouble(xml.Value); }
-                                 break;
-
-                             case XmlNodeType.EndElement:
-                                 if (xml.Name == "Person")
-                                 {
-                                     myList2.Add(m);
-                                     m = new Person();
-                                 }
-                                 break;
-                         }
-                 } 
-               
-               }*/
+            } 
 
             // 2 sposib  ===================
-                   using (XmlReader xml = XmlReader.Create("PersonsData.xml"))
-                   {
-                       while (xml.Read())
-                       {
-                           if (xml.IsStartElement())
-                           {   // Get element name and switch on it.
-                               switch (xml.Name)
-                                   {
-                                       case "Person": myList2.Add(m); m = new Person(); break;
-                                       case "Name": if (xml.Read()) { m.name = xml.Value; } break;
-                                       case "Surname": if (xml.Read()) { m.surname = xml.Value; } break;
-                                       case "DayOfBirthday": if (xml.Read()) { m.day = xml.Value; } break;
-                                       case "Education": if (xml.Read()) { m.education = xml.Value; } break;
-                                       case "Profession": if (xml.Read()) { m.profession = xml.Value; } break;
-                                       case "Money": if (xml.Read()) { m.zp = Convert.ToDouble(xml.Value); } break;
-                                   }
-                             }
-                       }
-                    myList2.Add(m); 
-                   }
-                   
-              //=====================
+
+            /* string lastNodeName = "";
+               using (XmlReader xml = XmlReader.Create("PersonsData.xml"))
+                          {
+                            while (xml.Read())
+                            {
+                                  switch (xml.NodeType)
+                                    {
+                                        case XmlNodeType.Element:
+                                            // нашли элемент member
+                                            if (xml.Name == "Person")
+                                            {
+
+                                                //поиск атрибутов ...
+                                            }
+
+                                            // запоминаем имя найденного элемента
+                                            lastNodeName = xml.Name;
+                                            break;
+
+                                        case XmlNodeType.Text:
+                                            // нашли текст, смотрим по имени элемента, что это за текст
+                                            if (lastNodeName == "Name") { m.name = xml.Value; }
+                                            else if (lastNodeName == "Surname") { m.surname = xml.Value; }
+                                            else if (lastNodeName == "DayOfBirthday") { m.day = xml.Value; } //m.dob = Convert.ToDateTime(xml.Value); } //DateTime.ParseExact(xml.Value, "dd.MM.yyyy", CultureInfo.InvariantCulture); }
+                                            else if (lastNodeName == "Education") { m.education = xml.Value; }
+                                            else if (lastNodeName == "Profession") { m.profession = xml.Value; }
+                                            else if (lastNodeName == "Money") { m.zp = Convert.ToDouble(xml.Value); }
+                                            break;
+
+                                        case XmlNodeType.EndElement:
+                                            if (xml.Name == "Person")
+                                            {
+                                                myList2.Add(m);
+                                                m = new Person();
+                                            }
+                                            break;
+                                    }
+                            } 
+               
+                          }*/
 
 
-
-
-
-                    
-            //======== to table ====
-         //   textBox1.Text = myList2[1].name + "  --  " + myList2[1].surname;
-                   for (int i = 1; i < myList2.Count; i++ )
-                   {
-                       dataGridView1.Rows.Add(myList2[i].name, myList2[i].surname, myList2[i].day, myList2[i].education, myList2[i].profession, Convert.ToString(myList2[i].zp));
-
-                   }
-            textBox1.Text = Convert.ToString(myList2.Count);
         }
 
     }
