@@ -9,3 +9,14 @@ E:\ProfectsCatHome\TaskHome\task2\task2\obj\Debug\task2.pdb
 E:\ProfectsCatHome\TaskHome\task2\task2\bin\Debug\SQLite.NET.dll
 E:\ProfectsCatHome\TaskHome\task2\task2\bin\Debug\System.Data.SQLite.dll
 E:\ProfectsCatHome\TaskHome\task2\task2\obj\Debug\task2.csprojResolveAssemblyReference.cache
+C:\Users\rlytvyn\Documents\GitHub\TaskHome\task2\task2\bin\Debug\task2.exe.config
+C:\Users\rlytvyn\Documents\GitHub\TaskHome\task2\task2\obj\Debug\task2.exe
+C:\Users\rlytvyn\Documents\GitHub\TaskHome\task2\task2\obj\Debug\task2.pdb
+C:\Users\rlytvyn\Documents\GitHub\TaskHome\task2\task2\bin\Debug\task2.exe
+C:\Users\rlytvyn\Documents\GitHub\TaskHome\task2\task2\bin\Debug\task2.pdb
+C:\Users\rlytvyn\Documents\GitHub\TaskHome\task2\task2\bin\Debug\SQLite.NET.dll
+C:\Users\rlytvyn\Documents\GitHub\TaskHome\task2\task2\bin\Debug\System.Data.SQLite.dll
+C:\Users\rlytvyn\Documents\GitHub\TaskHome\task2\task2\obj\Debug\task2.csprojResolveAssemblyReference.cache
+C:\Users\rlytvyn\Documents\GitHub\TaskHome\task2\task2\obj\Debug\task2.Form1.resources
+C:\Users\rlytvyn\Documents\GitHub\TaskHome\task2\task2\obj\Debug\task2.Properties.Resources.resources
+C:\Users\rlytvyn\Documents\GitHub\TaskHome\task2\task2\obj\Debug\task2.csproj.GenerateResource.Cache
