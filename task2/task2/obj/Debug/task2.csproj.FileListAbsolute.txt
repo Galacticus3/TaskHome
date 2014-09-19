@@ -1,9 +1,11 @@
 E:\ProfectsCatHome\TaskHome\task2\task2\bin\Debug\task2.exe.config
 E:\ProfectsCatHome\TaskHome\task2\task2\bin\Debug\task2.exe
 E:\ProfectsCatHome\TaskHome\task2\task2\bin\Debug\task2.pdb
-E:\ProfectsCatHome\TaskHome\task2\task2\obj\Debug\task2.csprojResolveAssemblyReference.cache
 E:\ProfectsCatHome\TaskHome\task2\task2\obj\Debug\task2.Form1.resources
 E:\ProfectsCatHome\TaskHome\task2\task2\obj\Debug\task2.Properties.Resources.resources
 E:\ProfectsCatHome\TaskHome\task2\task2\obj\Debug\task2.csproj.GenerateResource.Cache
 E:\ProfectsCatHome\TaskHome\task2\task2\obj\Debug\task2.exe
 E:\ProfectsCatHome\TaskHome\task2\task2\obj\Debug\task2.pdb
+E:\ProfectsCatHome\TaskHome\task2\task2\bin\Debug\SQLite.NET.dll
+E:\ProfectsCatHome\TaskHome\task2\task2\bin\Debug\System.Data.SQLite.dll
+E:\ProfectsCatHome\TaskHome\task2\task2\obj\Debug\task2.csprojResolveAssemblyReference.cache

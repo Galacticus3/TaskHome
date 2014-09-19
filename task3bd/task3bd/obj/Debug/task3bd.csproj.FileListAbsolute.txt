@@ -1,0 +1,11 @@
+E:\ProfectsCatHome\TaskHome\task3bd\task3bd\bin\Debug\task3bd.exe.config
+E:\ProfectsCatHome\TaskHome\task3bd\task3bd\bin\Debug\task3bd.exe
+E:\ProfectsCatHome\TaskHome\task3bd\task3bd\bin\Debug\task3bd.pdb
+E:\ProfectsCatHome\TaskHome\task3bd\task3bd\bin\Debug\SQLite.NET.dll
+E:\ProfectsCatHome\TaskHome\task3bd\task3bd\bin\Debug\System.Data.SQLite.dll
+E:\ProfectsCatHome\TaskHome\task3bd\task3bd\obj\Debug\task3bd.csprojResolveAssemblyReference.cache
+E:\ProfectsCatHome\TaskHome\task3bd\task3bd\obj\Debug\task3bd.Form1.resources
+E:\ProfectsCatHome\TaskHome\task3bd\task3bd\obj\Debug\task3bd.Properties.Resources.resources
+E:\ProfectsCatHome\TaskHome\task3bd\task3bd\obj\Debug\task3bd.csproj.GenerateResource.Cache
+E:\ProfectsCatHome\TaskHome\task3bd\task3bd\obj\Debug\task3bd.exe
+E:\ProfectsCatHome\TaskHome\task3bd\task3bd\obj\Debug\task3bd.pdb

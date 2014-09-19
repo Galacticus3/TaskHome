@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
+using System.Data.SQLite;
 
 namespace task2
 {
@@ -17,6 +18,13 @@ namespace task2
     public partial class Form1 : Form
     {
         List<Person> myList = new List<Person>();
+
+        
+        SQLiteConnection sql_con;
+        SQLiteCommand sql_cmd;
+        SQLiteDataAdapter DB;
+        DataSet DS = new DataSet();
+        DataTable DT = new DataTable();
 
         public Form1()
         {
@@ -174,6 +182,73 @@ namespace task2
                           }*/
 
 
+        }
+
+    /*  SQLiteConnection sql_con;
+        SQLiteCommand sql_cmd;
+        SQLiteDataAdapter DB;
+        DataSet DS = new DataSet();
+        DataTable DT = new DataTable(); */
+
+        //set up the Connection
+        void SetConnection()
+        { sql_con = new SQLiteConnection("Data Source=E:\\ProfectsCatHome\\TaskHome\\task2\\task2\\base11.db"); }
+
+        //generic function to execute Create Command queries
+        void ExecuteQuery(string txtQuery)
+        {
+            SetConnection();
+            sql_con.Open();
+            sql_cmd = sql_con.CreateCommand();
+            sql_cmd.CommandText = txtQuery;
+            sql_cmd.ExecuteNonQuery();
+            sql_con.Close();
+        }
+
+        //function to access the SQLite database and retrieve the data from the table and fill the Dataset
+        void LoadData()
+        {
+            SetConnection();
+            sql_con.Open();
+            sql_cmd = sql_con.CreateCommand();
+            string CommandText = "SELECT * FROM table1";
+            DB = new SQLiteDataAdapter(CommandText, sql_con);
+            DS.Reset();
+            DB.Fill(DS);
+            DT = DS.Tables[0];
+            dataGridView1.DataSource = DT;
+            sql_con.Close();
+        }
+
+        //To add/edit/delete an entry to and from the table, just pass the required query to the already created ExecuteQuery function
+        void Add()
+        {
+            string txtSQLQuery = "insert into  mains (desc) values ";//('" + txtDesc.Text+ "')";
+            ExecuteQuery(txtSQLQuery);
+        }
+        
+        
+        private void btnLoadFromDataBase_Click(object sender, EventArgs e)
+        {
+            //LoadData();
+
+            string conn_str = @"Data Source = E:\ProfectsCatHome\base";
+            
+            using (SQLiteConnection conn = new SQLiteConnection(conn_str))
+            {
+                try
+                {
+                    conn.Open();
+                    if (conn.State == ConnectionState.Open)
+                    {
+                        MessageBox.Show("connection ok!");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
         }
 
     }

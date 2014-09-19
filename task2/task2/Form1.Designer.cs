@@ -51,6 +51,7 @@
             this.btnSaveToXml = new System.Windows.Forms.Button();
             this.btnLoadFromXml = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.btnLoadFromDataBase = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -242,11 +243,22 @@
             this.textBox1.Size = new System.Drawing.Size(566, 20);
             this.textBox1.TabIndex = 17;
             // 
+            // btnLoadFromDataBase
+            // 
+            this.btnLoadFromDataBase.Location = new System.Drawing.Point(454, 176);
+            this.btnLoadFromDataBase.Name = "btnLoadFromDataBase";
+            this.btnLoadFromDataBase.Size = new System.Drawing.Size(148, 23);
+            this.btnLoadFromDataBase.TabIndex = 18;
+            this.btnLoadFromDataBase.Text = "button1";
+            this.btnLoadFromDataBase.UseVisualStyleBackColor = true;
+            this.btnLoadFromDataBase.Click += new System.EventHandler(this.btnLoadFromDataBase_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(719, 566);
+            this.Controls.Add(this.btnLoadFromDataBase);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.btnLoadFromXml);
             this.Controls.Add(this.btnSaveToXml);
@@ -299,6 +311,7 @@
         private System.Windows.Forms.Button btnSaveToXml;
         private System.Windows.Forms.Button btnLoadFromXml;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button btnLoadFromDataBase;
     }
 }
 
