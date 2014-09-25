@@ -6,10 +6,15 @@ using System.Text;
 
 namespace task2
 {
+    enum EducationType { serednya, bakalawr, vyshcha };
+    enum ProfessionType { buhgalter, programist, sesurity, ekonomist, yurist, admin, krutan, kasyr };
+    
     public class Person
     {
         public string name, surname, education, profession, day, money;
         public DateTime dob;
+       // public EducationType educations;
+        //public ProfessionType professions;
         public double zp;        
 
         public Person (string nm, string snm, DateTime dob, string education, string profession, double zp)

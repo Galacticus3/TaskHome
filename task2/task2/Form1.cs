@@ -12,8 +12,7 @@ using System.Data.SQLite;
 
 namespace task2
 {
-    enum EducationType { serednya, bakalawr, vyshcha };
-    enum ProfessionType { buhgalter, programist, sesurity, ekonomist, yurist, admin, krutan, kasyr };
+ 
 
     public partial class Form1 : Form
     {
@@ -25,6 +24,7 @@ namespace task2
         SQLiteDataAdapter DB;
         DataSet DS = new DataSet();
         DataTable DT = new DataTable();
+        string SetRow;
 
         public Form1()
         {
@@ -69,6 +69,10 @@ namespace task2
         //лишнє
         private void label3_Click(object sender, EventArgs e) {   }
         private void label4_Click(object sender, EventArgs e) {   }
+        private void button1_Click(object sender, EventArgs e) {   }
+
+
+        //=====================Запис в xml файл==========================
 
         private void btnSaveToXml_Click(object sender, EventArgs e)
         {
@@ -105,6 +109,8 @@ namespace task2
             }
         }
 
+       //==========================Читання з xml файлу=============================
+        
         private void btnLoadFromXml_Click(object sender, EventArgs e)
         { 
            Person m = new Person();
@@ -190,9 +196,34 @@ namespace task2
         DataSet DS = new DataSet();
         DataTable DT = new DataTable(); */
 
+       
+        //===========================Робота з базою даних========================
+
+        /* string conn_str = @"Data Source = E:\ProfectsCatHome\base";
+            
+           using (SQLiteConnection conn = new SQLiteConnection(conn_str))
+           {
+               try
+               {
+                   conn.Open();
+                   if (conn.State == ConnectionState.Open)
+                   {
+                       MessageBox.Show("connection ok!");
+                   }
+               }
+               catch (Exception ex)
+               {
+                   MessageBox.Show(ex.Message);
+               }
+           }*/
+
         //set up the Connection
         void SetConnection()
-        { sql_con = new SQLiteConnection("Data Source=E:\\ProfectsCatHome\\TaskHome\\task2\\task2\\base11.db"); }
+        {
+            string conn_str = @"Data Source = E:\ProfectsCatHome\base";
+            sql_con = new SQLiteConnection(conn_str);
+        }
+                //"Data Source=E:\\ProfectsCatHome\\TaskHome\\task2\\task2\\base11.db"); }
 
         //generic function to execute Create Command queries
         void ExecuteQuery(string txtQuery)
@@ -216,39 +247,93 @@ namespace task2
             DS.Reset();
             DB.Fill(DS);
             DT = DS.Tables[0];
-            dataGridView1.DataSource = DT;
+            dataGridView2.DataSource = DT;
+            dataGridView2.Columns[0].Visible = false;
             sql_con.Close();
         }
 
         //To add/edit/delete an entry to and from the table, just pass the required query to the already created ExecuteQuery function
-        void Add()
+        void AddFromDB()
         {
-            string txtSQLQuery = "insert into  mains (desc) values ";//('" + txtDesc.Text+ "')";
+            string txtSQLQuery = @"INSERT INTO table1 (NAME,SURNAME,DAYOFBIRTHDAY,EDUCATION,PROFESSION,ZP)"
+                                 +"VALUES ('"+ txtName.Text+"','"+ txtSurname.Text + "','" + dtmDateOfBirth.Value.ToString("dd.MM.yyyy")+ "',"
+                                 +"'" + cmbEducation.Text + "','" + cmbProfession.Text + "','" + Convert.ToDouble(txtZp.Text)+"')";
+
+          //  string txtSQLQuery = @"DELETE FROM table1 WHERE ID='4'";
             ExecuteQuery(txtSQLQuery);
+            MessageBox.Show("Add ok!");
         }
         
+        void DeleteFromDB()
+        {
+            string txtSQLQuery = @"DELETE FROM table1 WHERE ID=" + dataGridView2.CurrentRow.Cells[0].Value.ToString() +"";
+            ExecuteQuery(txtSQLQuery);
+            MessageBox.Show("Delete ok!");
+        }
+
+        void UpdateInDB()
+        {
+            string txtSQLQuery = "UPDATE table1 SET NAME='" + txtName.Text + "', SURNAME='" + txtSurname.Text + "', DAYOFBIRTHDAY='" + dtmDateOfBirth.Value.ToString("dd.MM.yyyy") + "',"
+                                +"EDUCATION='" + cmbEducation.Text + "', PROFESSION='" + cmbProfession.Text + "', ZP='" + Convert.ToDouble(txtZp.Text) + "'"
+                                + "WHERE ID=" + dataGridView2.CurrentRow.Cells[0].Value.ToString() + " ";
+            
+            ExecuteQuery(txtSQLQuery);
+            MessageBox.Show("Update ok!");
+        }
+
         
         private void btnLoadFromDataBase_Click(object sender, EventArgs e)
         {
-            //LoadData();
+            LoadData();
+        }
 
-            string conn_str = @"Data Source = E:\ProfectsCatHome\base";
-            
-            using (SQLiteConnection conn = new SQLiteConnection(conn_str))
+
+
+        private void btnAddToDatabase_Click(object sender, EventArgs e)
+        {
+            //перевірка полів 
+            bool isValid = textFieldValivation(txtName, lblName) && textFieldValivation(txtSurname, lblSurname) && textFieldValivation2(cmbEducation, lblEducation) && textFieldValivation2(cmbProfession, lblProfession) && textFieldValivation(txtZp, lblZp);
+            if (!isValid)
             {
-                try
-                {
-                    conn.Open();
-                    if (conn.State == ConnectionState.Open)
-                    {
-                        MessageBox.Show("connection ok!");
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
+                return;
             }
+            AddFromDB();
+            LoadData();
+        }
+
+        private void btnDelFromDatabase_Click(object sender, EventArgs e)
+        {
+            DeleteFromDB();
+            LoadData();
+        }
+
+        private void btnSetRowForUpdate_Click(object sender, EventArgs e)
+        {
+            //номер строки в таблице, которую собираемся отредактировать
+            int RowIndex = Convert.ToInt32(dataGridView2.CurrentRow.Index.ToString());
+            //запоминаем ID в строке для дальнейшего редактирования в btnUpdateRowOfDatabase_Click
+            SetRow = dataGridView2.CurrentRow.Cells[0].Value.ToString();
+            textBox1.Text = SetRow;
+
+            //забиваем данные со строки из таблицы в поля для дальнейшего редактирования
+            txtName.Text = dataGridView2.Rows[RowIndex].Cells[1].Value.ToString();
+            txtSurname.Text = dataGridView2.Rows[RowIndex].Cells[2].Value.ToString();
+            dtmDateOfBirth.Value = DateTime.Parse(dataGridView2.Rows[RowIndex].Cells[3].Value.ToString());
+            cmbEducation.Text = dataGridView2.Rows[RowIndex].Cells[4].Value.ToString();
+            cmbProfession.Text = dataGridView2.Rows[RowIndex].Cells[5].Value.ToString();
+            txtZp.Text = dataGridView2.Rows[RowIndex].Cells[6].Value.ToString();
+        }
+
+        private void btnUpdateRowOfDatabase_Click(object sender, EventArgs e)
+        {
+            //перевірка полів 
+            bool isValid = textFieldValivation(txtName, lblName) && textFieldValivation(txtSurname, lblSurname) && textFieldValivation2(cmbEducation, lblEducation) && textFieldValivation2(cmbProfession, lblProfession) && textFieldValivation(txtZp, lblZp);
+            if (!isValid)
+            {
+                return;
+            }
+            UpdateInDB();
+            LoadData();
         }
 
     }

@@ -52,16 +52,22 @@
             this.btnLoadFromXml = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.btnLoadFromDataBase = new System.Windows.Forms.Button();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.btnAddToDatabase = new System.Windows.Forms.Button();
+            this.btnDelFromDatabase = new System.Windows.Forms.Button();
+            this.btnUpdateRowOfDatabase = new System.Windows.Forms.Button();
+            this.btnSetRowForUpdate = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // btnAddToList
             // 
-            this.btnAddToList.Location = new System.Drawing.Point(31, 176);
+            this.btnAddToList.Location = new System.Drawing.Point(310, 12);
             this.btnAddToList.Name = "btnAddToList";
-            this.btnAddToList.Size = new System.Drawing.Size(75, 23);
+            this.btnAddToList.Size = new System.Drawing.Size(184, 23);
             this.btnAddToList.TabIndex = 0;
-            this.btnAddToList.Text = "Додати";
+            this.btnAddToList.Text = "Додати в табл. 1";
             this.btnAddToList.UseVisualStyleBackColor = true;
             this.btnAddToList.Click += new System.EventHandler(this.btnAddToList_Click);
             // 
@@ -137,9 +143,9 @@
             this.Column4,
             this.Column5,
             this.Column6});
-            this.dataGridView1.Location = new System.Drawing.Point(31, 228);
+            this.dataGridView1.Location = new System.Drawing.Point(31, 197);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(657, 204);
+            this.dataGridView1.Size = new System.Drawing.Size(657, 142);
             this.dataGridView1.TabIndex = 9;
             // 
             // Column1
@@ -218,46 +224,99 @@
             // 
             // btnSaveToXml
             // 
-            this.btnSaveToXml.Location = new System.Drawing.Point(141, 176);
+            this.btnSaveToXml.Location = new System.Drawing.Point(310, 41);
             this.btnSaveToXml.Name = "btnSaveToXml";
-            this.btnSaveToXml.Size = new System.Drawing.Size(90, 23);
+            this.btnSaveToXml.Size = new System.Drawing.Size(184, 23);
             this.btnSaveToXml.TabIndex = 15;
-            this.btnSaveToXml.Text = "Зберегти в xml";
+            this.btnSaveToXml.Text = "Зберегти в xml з табл. 1";
             this.btnSaveToXml.UseVisualStyleBackColor = true;
             this.btnSaveToXml.Click += new System.EventHandler(this.btnSaveToXml_Click);
             // 
             // btnLoadFromXml
             // 
-            this.btnLoadFromXml.Location = new System.Drawing.Point(255, 176);
+            this.btnLoadFromXml.Location = new System.Drawing.Point(310, 71);
             this.btnLoadFromXml.Name = "btnLoadFromXml";
-            this.btnLoadFromXml.Size = new System.Drawing.Size(127, 23);
+            this.btnLoadFromXml.Size = new System.Drawing.Size(184, 23);
             this.btnLoadFromXml.TabIndex = 16;
-            this.btnLoadFromXml.Text = "Завантажити з xml";
+            this.btnLoadFromXml.Text = "Завантажити з xml в табл. 1";
             this.btnLoadFromXml.UseVisualStyleBackColor = true;
             this.btnLoadFromXml.Click += new System.EventHandler(this.btnLoadFromXml_Click);
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(75, 489);
+            this.textBox1.Location = new System.Drawing.Point(106, 607);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(566, 20);
+            this.textBox1.Size = new System.Drawing.Size(351, 20);
             this.textBox1.TabIndex = 17;
             // 
             // btnLoadFromDataBase
             // 
-            this.btnLoadFromDataBase.Location = new System.Drawing.Point(454, 176);
+            this.btnLoadFromDataBase.Location = new System.Drawing.Point(504, 12);
             this.btnLoadFromDataBase.Name = "btnLoadFromDataBase";
-            this.btnLoadFromDataBase.Size = new System.Drawing.Size(148, 23);
+            this.btnLoadFromDataBase.Size = new System.Drawing.Size(184, 23);
             this.btnLoadFromDataBase.TabIndex = 18;
-            this.btnLoadFromDataBase.Text = "button1";
+            this.btnLoadFromDataBase.Text = "Завантажити з БД в табл. 2";
             this.btnLoadFromDataBase.UseVisualStyleBackColor = true;
             this.btnLoadFromDataBase.Click += new System.EventHandler(this.btnLoadFromDataBase_Click);
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(31, 361);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.Size = new System.Drawing.Size(657, 193);
+            this.dataGridView2.TabIndex = 19;
+            // 
+            // btnAddToDatabase
+            // 
+            this.btnAddToDatabase.Location = new System.Drawing.Point(504, 41);
+            this.btnAddToDatabase.Name = "btnAddToDatabase";
+            this.btnAddToDatabase.Size = new System.Drawing.Size(184, 23);
+            this.btnAddToDatabase.TabIndex = 20;
+            this.btnAddToDatabase.Text = "Додати в БД в табл. 2";
+            this.btnAddToDatabase.UseVisualStyleBackColor = true;
+            this.btnAddToDatabase.Click += new System.EventHandler(this.btnAddToDatabase_Click);
+            // 
+            // btnDelFromDatabase
+            // 
+            this.btnDelFromDatabase.Location = new System.Drawing.Point(504, 71);
+            this.btnDelFromDatabase.Name = "btnDelFromDatabase";
+            this.btnDelFromDatabase.Size = new System.Drawing.Size(184, 23);
+            this.btnDelFromDatabase.TabIndex = 21;
+            this.btnDelFromDatabase.Text = "Видалити рядок з БД в табл. 2";
+            this.btnDelFromDatabase.UseVisualStyleBackColor = true;
+            this.btnDelFromDatabase.Click += new System.EventHandler(this.btnDelFromDatabase_Click);
+            // 
+            // btnUpdateRowOfDatabase
+            // 
+            this.btnUpdateRowOfDatabase.Location = new System.Drawing.Point(405, 129);
+            this.btnUpdateRowOfDatabase.Name = "btnUpdateRowOfDatabase";
+            this.btnUpdateRowOfDatabase.Size = new System.Drawing.Size(283, 23);
+            this.btnUpdateRowOfDatabase.TabIndex = 22;
+            this.btnUpdateRowOfDatabase.Text = "Зберегти відредагований рядок таблиці БД в табл. 2";
+            this.btnUpdateRowOfDatabase.UseVisualStyleBackColor = true;
+            this.btnUpdateRowOfDatabase.Click += new System.EventHandler(this.btnUpdateRowOfDatabase_Click);
+            // 
+            // btnSetRowForUpdate
+            // 
+            this.btnSetRowForUpdate.Location = new System.Drawing.Point(405, 100);
+            this.btnSetRowForUpdate.Name = "btnSetRowForUpdate";
+            this.btnSetRowForUpdate.Size = new System.Drawing.Size(283, 23);
+            this.btnSetRowForUpdate.TabIndex = 23;
+            this.btnSetRowForUpdate.Text = "Вибрати рядок для редагування в табл. 2";
+            this.btnSetRowForUpdate.UseVisualStyleBackColor = true;
+            this.btnSetRowForUpdate.Click += new System.EventHandler(this.btnSetRowForUpdate_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(719, 566);
+            this.ClientSize = new System.Drawing.Size(719, 657);
+            this.Controls.Add(this.btnSetRowForUpdate);
+            this.Controls.Add(this.btnUpdateRowOfDatabase);
+            this.Controls.Add(this.btnDelFromDatabase);
+            this.Controls.Add(this.btnAddToDatabase);
+            this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.btnLoadFromDataBase);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.btnLoadFromXml);
@@ -281,6 +340,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -312,6 +372,11 @@
         private System.Windows.Forms.Button btnLoadFromXml;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button btnLoadFromDataBase;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.Button btnAddToDatabase;
+        private System.Windows.Forms.Button btnDelFromDatabase;
+        private System.Windows.Forms.Button btnUpdateRowOfDatabase;
+        private System.Windows.Forms.Button btnSetRowForUpdate;
     }
 }
 
